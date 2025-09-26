@@ -1,0 +1,4 @@
+# General ignores for project-level stuff
+.DS_Store
+*.log
+.env
