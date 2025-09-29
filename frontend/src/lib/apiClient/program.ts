@@ -1,18 +1,18 @@
 // lib/apiClient/programs.ts
 import api from '../api';
 
-export interface Program {
-  id: string;
-  name: string;
-  description?: string;
-  // Add more fields as needed
-}
-
 export interface PaginatedResponse<T> {
   count: number;
   next: string | null;
   previous: string | null;
   results: T[];
+}
+
+export interface Program {
+  id: string; // or `number`? pick one based on your API
+  name: string;
+  description?: string;
+  // Add more fields as needed
 }
 
 // Fetch paginated list of programs
