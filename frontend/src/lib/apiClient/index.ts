@@ -1,1 +1,1 @@
-export *as ProgramAPI from './programs';
+export * as ProgramAPI from './programs';
