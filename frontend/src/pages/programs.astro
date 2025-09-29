@@ -2,6 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { ProgramAPI } from '../lib/apiClient';
+
+const data = await ProgramAPI.getPrograms();
+const programs = data.results;
 ---
 
 <Layout title="Our Programs" description="Discover CBO NGO's comprehensive programs including scholarships, workshops, mentorship, and community development projects.">
