@@ -3,6 +3,7 @@ from django.utils import timezone
 from ckeditor.fields import RichTextField
 
 
+
 class BaseModel(models.Model):
     """Base model with common fields"""
     created_at = models.DateTimeField(auto_now_add=True)
@@ -139,7 +140,7 @@ class Testimonial(BaseModel):
 class FAQ(BaseModel):
     """Frequently Asked Questions"""
     question = models.CharField(max_length=300)
-    answer = CKEditor5Field()
+    answer = RichTextField()
     category = models.CharField(max_length=50, choices=[
         ('general', 'General'),
         ('scholarships', 'Scholarships'),

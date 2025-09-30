@@ -33,6 +33,7 @@ THIRD_PARTY_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 LOCAL_APPS = [
