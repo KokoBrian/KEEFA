@@ -1,1 +1,0 @@
-# KEEFA Django Backend
