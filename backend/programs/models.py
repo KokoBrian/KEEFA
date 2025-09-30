@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django_ckeditor_5.fields import CKEditor5Field
+from ckeditor.fields import RichTextField
 from core.models import BaseModel
 
 
@@ -17,7 +17,7 @@ class Program(BaseModel):
     slug = models.SlugField(unique=True)
     program_type = models.CharField(max_length=20, choices=PROGRAM_TYPES)
     short_description = models.TextField(max_length=300)
-    full_description = CKEditor5Field()
+    full_description = RichTextField()
     image = models.ImageField(upload_to='programs/')
     icon = models.CharField(max_length=50, help_text="CSS class for icon")
     color = models.CharField(max_length=20, default="primary")
@@ -27,9 +27,9 @@ class Program(BaseModel):
     success_rate = models.PositiveIntegerField(default=0, help_text="Percentage")
     
     # Program details
-    eligibility_criteria = CKEditor5Field(blank=True, null=True)
-    application_process = CKEditor5Field(blank=True, null=True)
-    requirements = CKEditor5Field(blank=True, null=True)
+    eligibility_criteria = RichTextField(blank=True, null=True)
+    application_process = RichTextField(blank=True, null=True)
+    requirements = RichTextField(blank=True, null=True)
     
     # Status
     is_accepting_applications = models.BooleanField(default=True)
@@ -235,7 +235,7 @@ class SuccessStory(BaseModel):
     name = models.CharField(max_length=100)
     program = models.ForeignKey(Program, on_delete=models.CASCADE, related_name='success_stories')
     title = models.CharField(max_length=200)
-    story = CKEditor5Field()
+    story = RichTextField()
     
     # Images and media
     profile_image = models.ImageField(upload_to='success_stories/')

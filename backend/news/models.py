@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
-from django_ckeditor_5.fields import CKEditor5Field 
+from ckeditor.fields import RichTextField
 from core.models import BaseModel
 
 
@@ -27,7 +27,7 @@ class NewsArticle(BaseModel):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     excerpt = models.TextField(max_length=300)
-    content = CKEditor5Field()
+    content = RichTextField()
     
     # Media
     featured_image = models.ImageField(upload_to='news/')
@@ -90,7 +90,7 @@ class Event(BaseModel):
     
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    description = CKEditor5Field()
+    description = RichTextField()
     
     # Event details
     event_type = models.CharField(max_length=20, choices=EVENT_TYPES)

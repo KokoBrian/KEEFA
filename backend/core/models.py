@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils import timezone
-from django_ckeditor_5.fields import CKEditor5Field
+from ckeditor.fields import RichTextField
 
 
 class BaseModel(models.Model):
@@ -17,10 +17,10 @@ class Organization(models.Model):
     """Organization information"""
     name = models.CharField(max_length=200, default="KEEFA")
     tagline = models.CharField(max_length=300, default="Empowering Communities")
-    mission = CKEditor5Field()
-    vision = CKEditor5Field()
-    values = CKEditor5Field()
-    story = CKEditor5Field()
+    mission = RichTextField()
+    vision = RichTextField()
+    values = RichTextField()
+    story = RichTextField()
     
     # Contact Information
     email = models.EmailField(default="info@keefa.org")
