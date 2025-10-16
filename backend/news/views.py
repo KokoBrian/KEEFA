@@ -90,22 +90,26 @@ class EventDetailView(generics.RetrieveAPIView):
     queryset = Event.objects.filter(is_active=True)
 
 class EventRegistrationCreateView(generics.CreateAPIView):
-    """Create an event registration"""
     serializer_class = EventRegistrationSerializer
-    queryset = EventRegistration.objects.all()
 
     def create(self, request, *args, **kwargs):
-        # Optional: Prevent duplicate registrations
-        event_id = request.data.get('event')
-        email = request.data.get('email')
+        event_slug = request.data.get("event_slug")
+        user_email = request.data.get("user_email")
 
-        if EventRegistration.objects.filter(event_id=event_id, email=email).exists():
-            return Response(
-                {"message": "You have already registered for this event."},
-                status=status.HTTP_200_OK
-            )
+        try:
+            event = Event.objects.get(slug=event_slug, is_active=True)
+        except Event.DoesNotExist:
+            return Response({"error": "Event not found"}, status=status.HTTP_404_NOT_FOUND)
 
-        return super().create(request, *args, **kwargs)
+        # Prevent duplicate registration
+        if EventRegistration.objects.filter(event=event, user_email=user_email).exists():
+            return Response({"message": "Already registered for this event"}, status=status.HTTP_200_OK)
+
+        registration = EventRegistration.objects.create(event=event, user_email=user_email)
+        return Response(
+            {"message": f"Successfully registered for {event.title}!", "id": registration.id},
+            status=status.HTTP_201_CREATED
+        )           
   
 
 class NewsletterSubscribeView(generics.CreateAPIView):
