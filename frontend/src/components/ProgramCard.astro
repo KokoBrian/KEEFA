@@ -1,0 +1,63 @@
+---
+// src/components/ProgramCard.astro
+interface Props {
+  program: {
+    id: number;
+    name: string;
+    slug: string;
+    program_type: string;
+    short_description: string;
+    full_description: string;
+    image: string;
+    icon: string;
+    color: string;
+    beneficiaries_count: number;
+    success_rate: number | null;
+    is_accepting_applications: boolean | null;
+    application_deadline: string | null;
+  };
+}
+
+const { program } = Astro.props;
+const programUrl = `/programs/${program.slug}/`;
+---
+
+<article 
+  class="group grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-12 border-b border-gray-200 transition hover:bg-gray-50 rounded-xl px-4"
+  id={program.slug}
+>
+  <!-- Image -->
+  <div class="animate-on-scroll order-2 lg:order-1">
+    <a href={programUrl} aria-label={`Read more about ${program.name}`}>
+      <img 
+        src={program.image}
+        alt={program.name}
+        loading="lazy"
+        class="w-full rounded-xl shadow-lg group-hover:opacity-90 transition"
+      />
+    </a>
+  </div>
+
+  <!-- Content -->
+  <div class="animate-on-scroll order-1 lg:order-2">
+    <a href={programUrl} class="no-underline text-inherit">
+      <div class="flex items-center mb-6">
+        <div class={`w-16 h-16 bg-${program.color}-500 rounded-full flex items-center justify-center mr-4`}>
+          <span class="text-white text-lg font-bold">{program.icon}</span>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 group-hover:text-primary-600 transition">{program.name}</h2>
+      </div>
+    </a>
+
+    <p class="text-xl text-gray-600 mb-6 leading-relaxed">{program.short_description}</p>
+    <div class="prose prose-lg max-w-none mb-6" set:html={program.full_description} />
+
+    <div class="text-sm text-gray-500 space-y-1">
+      <p><strong>Beneficiaries:</strong> {program.beneficiaries_count}</p>
+      <p><strong>Success Rate:</strong> {program.success_rate ?? 'N/A'}%</p>
+      {program.is_accepting_applications && (
+        <p><strong>Applications Open</strong>{program.application_deadline ? ` – Deadline: ${program.application_deadline}` : ''}</p>
+      )}
+    </div>
+  </div>
+</article>

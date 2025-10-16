@@ -1,0 +1,106 @@
+---
+
+---
+
+<section class="py-16 bg-primary-50">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12 animate-on-scroll">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Impact in Numbers</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Every number represents a life changed, a community strengthened, and a future brightened.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+        <div class="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+            <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+          </svg>
+        </div>
+        <h3 class="text-4xl font-bold text-primary-600 mb-2 counter" data-target="500">0</h3>
+        <p class="text-lg font-semibold text-gray-800">Students Supported</p>
+        <p class="text-sm text-gray-600 mt-2">Through scholarships and educational support</p>
+      </div>
+
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+        <div class="w-16 h-16 bg-secondary-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="text-4xl font-bold text-secondary-600 mb-2 counter" data-target="15">0</h3>
+        <p class="text-lg font-semibold text-gray-800">Community Projects</p>
+        <p class="text-sm text-gray-600 mt-2">Active initiatives across multiple regions</p>
+      </div>
+
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+        <div class="w-16 h-16 bg-success-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-4xl font-bold text-success-600 mb-2 counter" data-target="250">0</h3>
+        <p class="text-lg font-semibold text-gray-800">Workshop Graduates</p>
+        <p class="text-sm text-gray-600 mt-2">Completed skill-building programs</p>
+      </div>
+
+      <div class="text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+        <div class="w-16 h-16 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-4xl font-bold text-accent-600 mb-2 counter" data-target="50000">0</h3>
+        <p class="text-lg font-semibold text-gray-800">Lives Impacted</p>
+        <p class="text-sm text-gray-600 mt-2">Directly and indirectly through our programs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Counter animation
+  document.addEventListener('DOMContentLoaded', function() {
+    const counters = document.querySelectorAll('.counter');
+    
+    const animateCounter = (counter) => {
+      const target = parseInt(counter.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+      
+      const updateCounter = () => {
+        current += increment;
+        if (current < target) {
+          counter.textContent = Math.floor(current).toLocaleString();
+          requestAnimationFrame(updateCounter);
+        } else {
+          counter.textContent = target.toLocaleString();
+        }
+      };
+      
+      updateCounter();
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target.querySelector('.counter');
+          if (counter && !counter.classList.contains('animated')) {
+            counter.classList.add('animated');
+            animateCounter(counter);
+          }
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+  });
+</script>

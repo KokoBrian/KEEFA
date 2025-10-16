@@ -1,0 +1,807 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="News & Updates" description="Stay informed about CBO NGO's latest activities, achievements, upcoming events, and community impact stories through our news and updates.">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-r from-secondary-600 to-accent-600 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">News & Updates</h1>
+        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Stay connected with our latest activities, achievements, and upcoming initiatives that are making a difference in communities.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured News -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured News</h2>
+          <p class="text-xl text-gray-600">
+            Our most recent and impactful stories from the field.
+          </p>
+        </div>
+
+        <!-- Featured Article -->
+        <article class="bg-white rounded-2xl shadow-xl overflow-hidden mb-12 animate-on-scroll">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="relative">
+              <img 
+                src="https://images.pexels.com/photos/1181345/pexels-photo-1181345.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+                alt="Scholarship recipients graduation ceremony"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute top-4 left-4">
+                <span class="bg-primary-500 text-white px-4 py-2 rounded-full text-sm font-semibold">Featured</span>
+              </div>
+            </div>
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center text-sm text-gray-500 mb-4">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                December 15, 2024
+                <span class="mx-2">•</span>
+                <span class="text-primary-600 font-medium">Education</span>
+              </div>
+              <h2 class="text-3xl font-bold text-gray-900 mb-4">50 Students Graduate with KEEFA Scholarship Support</h2>
+              <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                We celebrated a momentous achievement as 50 scholarship recipients graduated from various institutions 
+                across Kenya. This milestone represents years of dedication, hard work, and the transformative power 
+                of education in breaking cycles of poverty.
+              </p>
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-gray-700">35 high school graduates proceeding to university</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-gray-700">15 university graduates entering the workforce</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-gray-700">95% graduation rate maintained across all programs</span>
+                </div>
+              </div>
+              <a href="#" class="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold">
+                Read Full Story
+                <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent News Grid -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Recent Updates</h2>
+          <p class="text-xl text-gray-600">
+            Latest news from our programs and community initiatives.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- News Item 1 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/4101187/pexels-photo-4101187.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Community garden project launch"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                December 10, 2024
+                <span class="mx-2">•</span>
+                <span class="text-success-600 font-medium">Community</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">New Community Garden Initiative Launches in Nakuru</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Our latest community project focuses on sustainable agriculture and food security. 
+                Local families now have access to fresh vegetables and learn organic farming techniques.
+              </p>
+              <a href="#" class="text-success-600 hover:text-success-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 2 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/1181265/pexels-photo-1181265.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Digital literacy workshop"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                December 5, 2024
+                <span class="mx-2">•</span>
+                <span class="text-secondary-600 font-medium">Workshops</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Digital Literacy Workshop Series Begins</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                We've launched a comprehensive digital literacy program to bridge the technology gap in our communities. 
+                Participants learn essential computer skills and online safety.
+              </p>
+              <a href="#" class="text-secondary-600 hover:text-secondary-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 3 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Partnership announcement"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 28, 2024
+                <span class="mx-2">•</span>
+                <span class="text-accent-600 font-medium">Partnership</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">New Partnership Expands Water Access in Kajiado</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Through our new partnership with local water cooperatives, we're implementing 
+                sustainable water harvesting systems in drought-prone areas.
+              </p>
+              <a href="#" class="text-accent-600 hover:text-accent-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 4 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Women empowerment program"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 20, 2024
+                <span class="mx-2">•</span>
+                <span class="text-accent-600 font-medium">Empowerment</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Women's Microfinance Groups Show Remarkable Growth</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Our women's empowerment program has facilitated the formation of 20 microfinance groups, 
+                supporting over 300 women in starting small businesses.
+              </p>
+              <a href="#" class="text-accent-600 hover:text-accent-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 5 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Tree planting campaign"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 15, 2024
+                <span class="mx-2">•</span>
+                <span class="text-success-600 font-medium">Environment</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">10,000th Tree Planted in Environmental Campaign</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                We reached a significant milestone in our environmental conservation efforts, 
+                planting our 10,000th tree across various community sites in Kenya.
+              </p>
+              <a href="#" class="text-success-600 hover:text-success-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+
+          <!-- News Item 6 -->
+          <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Annual report release"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center text-sm text-gray-500 mb-3">
+                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                </svg>
+                November 1, 2024
+                <span class="mx-2">•</span>
+                <span class="text-primary-600 font-medium">Report</span>
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">2024 Annual Impact Report Released</h3>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Our comprehensive annual report showcases the remarkable achievements and impact 
+                of our programs throughout 2024, with detailed financial transparency.
+              </p>
+              <a href="#" class="text-primary-600 hover:text-primary-700 font-semibold text-sm">
+                Read More →
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center mt-12 animate-on-scroll">
+          <button class="bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">
+            Load More Articles
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
+          <p class="text-xl text-gray-600">
+            Join us at our upcoming events and be part of the change.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Event 1 -->
+          <div class="bg-primary-50 rounded-xl p-6 border-l-4 border-primary-500 animate-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm text-primary-600 font-semibold">January 15, 2025 • 9:00 AM</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Annual Scholarship Awards Ceremony</h3>
+                <p class="text-gray-600">
+                  Join us as we celebrate our new scholarship recipients and honor the achievements 
+                  of our graduating students at the Nairobi Community Center.
+                </p>
+              </div>
+              <div class="mt-4 md:mt-0 md:ml-6">
+                <a href="#" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-full font-semibold transition-colors duration-200">
+                  Register
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 2 -->
+          <div class="bg-success-50 rounded-xl p-6 border-l-4 border-success-500 animate-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <svg class="w-5 h-5 text-success-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm text-success-600 font-semibold">February 3, 2025 • 8:00 AM</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Community Tree Planting Day</h3>
+                <p class="text-gray-600">
+                  Participate in our environmental conservation efforts by joining our community 
+                  tree planting event in Kiambu County. All ages welcome!
+                </p>
+              </div>
+              <div class="mt-4 md:mt-0 md:ml-6">
+                <a href="#" class="bg-success-500 hover:bg-success-600 text-white px-6 py-2 rounded-full font-semibold transition-colors duration-200">
+                  Join Event
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Event 3 -->
+          <div class="bg-secondary-50 rounded-xl p-6 border-l-4 border-secondary-500 animate-on-scroll">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+              <div class="flex-1">
+                <div class="flex items-center mb-2">
+                  <svg class="w-5 h-5 text-secondary-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="text-sm text-secondary-600 font-semibold">February 20, 2025 • 2:00 PM</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Youth Leadership Workshop</h3>
+                <p class="text-gray-600">
+                  A comprehensive leadership development workshop for young people aged 16-25, 
+                  focusing on communication, project management, and community engagement skills.
+                </p>
+              </div>
+              <div class="mt-4 md:mt-0 md:ml-6">
+                <a href="#" class="bg-secondary-500 hover:bg-secondary-600 text-white px-6 py-2 rounded-full font-semibold transition-colors duration-200">
+                  Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="py-16 bg-gray-900 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+        <p class="text-xl text-gray-300 mb-8">
+          Subscribe to our newsletter to receive the latest news, updates, and stories 
+          directly in your inbox.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <input 
+            type="email" 
+            placeholder="Enter your email address"
+            class="flex-1 px-4 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            required
+          />
+          <button 
+            type="submit"
+            class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Subscribe
+          </button>
+        </form>
+        <p class="text-sm text-gray-400 mt-4">
+          We respect your privacy. Unsubscribe at any time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Helper function to find buttons containing specific text
+  function findButtonsContaining(text) {
+    return Array.from(document.querySelectorAll('button, a')).filter(el => 
+      el.textContent.includes(text)
+    );
+  }
+  
+  // Close modal function - globally accessible
+  function closeModal() {
+    const modals = document.querySelectorAll('#eventModal, #articleModal');
+    modals.forEach(modal => modal.remove());
+  }
+
+  // Newsletter subscription functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const newsletterForm = document.querySelector('form');
+    
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const email = formData.get('email');
+        
+        if (!email) {
+          alert('Please enter your email address');
+          return;
+        }
+        
+        // Show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        submitButton.textContent = 'Subscribing...';
+        submitButton.disabled = true;
+        
+        try {
+          // In a real implementation, this would call your backend API
+          // const response = await fetch('/api/v1/news/newsletter/subscribe/', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify({ email: email })
+          // });
+          
+          // Simulate API call
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          
+          // Show success message
+          alert('Thank you for subscribing to our newsletter! You will receive updates about our latest news and activities.');
+          this.reset();
+          
+        } catch (error) {
+          console.error('Newsletter subscription error:', error);
+          alert('There was an error subscribing to the newsletter. Please try again.');
+        } finally {
+          // Reset button state
+          submitButton.textContent = originalText;
+          submitButton.disabled = false;
+        }
+      });
+    }
+    
+    // Event registration functionality
+    const eventButtons = document.querySelectorAll('a[href="#"]:not([href="/news"])');
+    
+    eventButtons.forEach(button => {
+      const buttonText = button.textContent.trim();
+      
+      if (buttonText.includes('Register') || buttonText.includes('Join Event') || buttonText.includes('Apply Now')) {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Get event details from the parent container
+          const eventContainer = this.closest('.bg-primary-50, .bg-success-50, .bg-secondary-50');
+          const eventTitle = eventContainer?.querySelector('h3')?.textContent || 'Event';
+          
+          // Show registration modal or redirect to registration page
+          showEventRegistrationModal(eventTitle, buttonText);
+        });
+      } else if (buttonText.includes('Read More') || buttonText.includes('Read Full Story')) {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Get article details
+          const articleContainer = this.closest('article');
+          const articleTitle = articleContainer?.querySelector('h3')?.textContent || 'Article';
+          
+          // Show article modal or redirect to full article
+          showArticleModal(articleTitle);
+        });
+      }
+    });
+    
+    // Load More Articles functionality
+    const loadMoreButton = findButtonsContaining('Load More Articles')[0];
+    if (loadMoreButton) {
+      loadMoreButton.addEventListener('click', async function() {
+        const originalText = this.textContent;
+        this.textContent = 'Loading...';
+        this.disabled = true;
+        
+        try {
+          // Simulate loading more articles
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          
+          // In a real implementation, you would fetch more articles from the API
+          // and append them to the news grid
+          
+          alert('More articles loaded! (This is a demo - in production, new articles would appear below)');
+          
+        } catch (error) {
+          console.error('Error loading more articles:', error);
+          alert('Error loading more articles. Please try again.');
+        } finally {
+          this.textContent = originalText;
+          this.disabled = false;
+        }
+      });
+    }
+  });
+  
+  // Event registration modal - globally accessible
+  function showEventRegistrationModal(eventTitle, buttonType) {
+    const isApplication = buttonType.includes('Apply');
+    const modalTitle = isApplication ? 'Apply for Event' : 'Event Registration';
+    
+    // Create modal HTML
+    const modalHTML = `
+      <div id="eventModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl max-w-md w-full p-6 max-h-[90vh] overflow-y-auto">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-gray-900">${modalTitle}</h3>
+            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          
+          <p class="text-gray-600 mb-4">Event: <strong>${eventTitle}</strong></p>
+          
+          <form id="eventRegistrationForm" class="space-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                <input type="text" name="firstName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Last Name *</label>
+                <input type="text" name="lastName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Email Address *</label>
+              <input type="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <input type="tel" name="phone" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Organization (Optional)</label>
+              <input type="text" name="organization" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Special Requirements or Comments</label>
+              <textarea name="comments" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"></textarea>
+            </div>
+            
+            <div class="flex gap-3 pt-4">
+              <button type="submit" class="flex-1 bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors duration-200">
+                ${isApplication ? 'Submit Application' : 'Register for Event'}
+              </button>
+              <button type="button" onclick="closeModal()" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors duration-200">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    `;
+    
+    // Add modal to page
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Add form submission handler
+    const form = document.getElementById('eventRegistrationForm');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData);
+      data.eventTitle = eventTitle;
+      
+      const submitButton = this.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Submitting...';
+      submitButton.disabled = true;
+      
+      try {
+        // In production, this would call your Django API
+        // await fetch('/api/v1/news/events/register/', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(data)
+        // });
+        
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        alert(`Thank you for ${isApplication ? 'applying to' : 'registering for'} ${eventTitle}! We will contact you with further details.`);
+        closeModal();
+        
+      } catch (error) {
+        console.error('Registration error:', error);
+        alert('There was an error with your registration. Please try again.');
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    });
+  }
+  
+  // Article modal - globally accessible
+  function showArticleModal(articleTitle) {
+    const modalHTML = `
+      <div id="articleModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-xl max-w-2xl w-full p-6 max-h-[90vh] overflow-y-auto">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-bold text-gray-900">Full Article</h3>
+            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+          
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">${articleTitle}</h4>
+          
+          <div class="prose max-w-none">
+            <p class="text-gray-600 mb-4">
+              This is where the full article content would be displayed. In a production environment, 
+              this would fetch the complete article from your Django backend API and display the full content, 
+              images, and related information.
+            </p>
+            
+            <p class="text-gray-600 mb-4">
+              The article would include detailed information about the news item, including quotes, 
+              statistics, photos, and any relevant links or resources.
+            </p>
+            
+            <div class="bg-gray-50 p-4 rounded-lg mb-4">
+              <p class="text-sm text-gray-600">
+                <strong>Note:</strong> This is a demo modal. In production, clicking "Read More" would either 
+                navigate to a dedicated article page or fetch the full content via API.
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex justify-end pt-4">
+            <button onclick="closeModal()" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+  }
+  
+  // Close modal when clicking outside
+  document.addEventListener('click', function(e) {
+    if (e.target.id === 'eventModal' || e.target.id === 'articleModal') {
+      closeModal();
+    }
+  });
+  
+  // Close modal with Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+  
+  // Initialize load more button functionality
+  setTimeout(() => {
+    const loadMoreBtn = findButtonsContaining('Load More Articles')[0];
+    if (loadMoreBtn && !loadMoreBtn.hasAttribute('data-initialized')) {
+      loadMoreBtn.setAttribute('data-initialized', 'true');
+      loadMoreBtn.addEventListener('click', async function(e) {
+        e.preventDefault();
+        
+        const originalText = this.textContent;
+        this.textContent = 'Loading...';
+        this.disabled = true;
+        
+        try {
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          showCustomAlert('More articles loaded! (Demo functionality - in production, new articles would appear)', 'success');
+        } catch (error) {
+          showCustomAlert('Error loading articles. Please try again.', 'error');
+        } finally {
+          this.textContent = originalText;
+          this.disabled = false;
+        }
+      });
+    }
+  }, 100);
+  
+  // Custom alert function
+  function showCustomAlert(message, type = 'info') {
+    // Remove any existing alerts
+    const existingAlert = document.getElementById('customAlert');
+    if (existingAlert) {
+      existingAlert.remove();
+    }
+    
+    // Determine colors based on type
+    let bgColor, borderColor, iconColor, icon;
+    switch (type) {
+      case 'success':
+        bgColor = 'bg-success-50';
+        borderColor = 'border-success-500';
+        iconColor = 'text-success-500';
+        icon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+        </svg>`;
+        break;
+      case 'error':
+        bgColor = 'bg-error-50';
+        borderColor = 'border-error-500';
+        iconColor = 'text-error-500';
+        icon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+        </svg>`;
+        break;
+      case 'warning':
+        bgColor = 'bg-warning-50';
+        borderColor = 'border-warning-500';
+        iconColor = 'text-warning-500';
+        icon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+        </svg>`;
+        break;
+      default: // info
+        bgColor = 'bg-primary-50';
+        borderColor = 'border-primary-500';
+        iconColor = 'text-primary-500';
+        icon = `<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+        </svg>`;
+    }
+    
+    // Create alert HTML
+    const alertHTML = `
+      <div id="customAlert" class="fixed top-4 right-4 z-50 max-w-md w-full mx-4 transform transition-all duration-300 ease-in-out translate-x-full opacity-0">
+        <div class="${bgColor} ${borderColor} border-l-4 p-4 rounded-lg shadow-lg">
+          <div class="flex items-start">
+            <div class="${iconColor} flex-shrink-0 mr-3">
+              ${icon}
+            </div>
+            <div class="flex-1">
+              <p class="text-gray-800 font-medium">${message}</p>
+            </div>
+            <button onclick="closeCustomAlert()" class="ml-3 text-gray-400 hover:text-gray-600 transition-colors duration-200">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    
+    // Add to page
+    document.body.insertAdjacentHTML('beforeend', alertHTML);
+    
+    // Animate in
+    const alertElement = document.getElementById('customAlert');
+    setTimeout(() => {
+      alertElement.classList.remove('translate-x-full', 'opacity-0');
+      alertElement.classList.add('translate-x-0', 'opacity-100');
+    }, 10);
+    
+    // Auto-hide after 5 seconds
+    setTimeout(() => {
+      closeCustomAlert();
+    }, 5000);
+  }
+  
+  // Close custom alert function
+  function closeCustomAlert() {
+    const alertElement = document.getElementById('customAlert');
+    if (alertElement) {
+      alertElement.classList.add('translate-x-full', 'opacity-0');
+      alertElement.classList.remove('translate-x-0', 'opacity-100');
+      setTimeout(() => {
+        alertElement.remove();
+      }, 300);
+    }
+  }
+</script>

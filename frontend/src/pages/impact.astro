@@ -1,0 +1,374 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Fragment } from 'astro/jsx-runtime'; //
+import type { ImpactStatistic } from '../api/impact';
+import { fetchImpactStatistics } from '../api/impact';
+
+const data = await fetchImpactStatistics();
+const stats: ImpactStatistic[] = data.results || [];
+
+// Tailwind color mappings
+const bgColorMap: Record<string, string> = {
+  primary: 'bg-primary-50',
+  secondary: 'bg-secondary-50',
+  success: 'bg-success-50',
+  accent: 'bg-accent-50',
+};
+
+const textColorMap: Record<string, string> = {
+  primary: 'text-primary-600',
+  secondary: 'text-secondary-600',
+  success: 'text-success-600',
+  accent: 'text-accent-600',
+};
+
+// Icon SVGs map
+const iconSvgs: Record<string, string> = {
+  'graduation-cap': `
+    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+      <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+    </svg>
+  `,
+  'book-open': `
+    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+    </svg>
+  `,
+  'users': `
+    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+  `,
+  'heart': `
+    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+    </svg>
+  `,
+};
+
+// Get icon SVG or fallback circle
+function getIconSVG(icon: string): string {
+  return iconSvgs[icon] ?? `
+    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"/>
+    </svg>
+  `;
+}
+---
+
+<Layout title="Our Impact" description="Discover the transformative impact of CBO NGO through detailed success stories, testimonials, and comprehensive impact reports from our community programs.">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-r from-success-600 to-primary-600 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Our Impact</h1>
+        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Real stories of transformation, hope, and community empowerment through our comprehensive programs.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Overview Stats -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Measuring Our Impact</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Every number represents a life changed, a community strengthened, and a future brightened through our dedicated programs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {stats.map(({ id, title, value, description, icon, color }) => (
+          <div
+            class={`${bgColorMap[color] || 'bg-gray-100'} text-center p-8 rounded-xl hover:shadow-lg transition-all duration-300 animate-on-scroll`}
+          >
+            <div
+              class={`w-20 h-20 ${textColorMap[color] || 'bg-gray-400'} rounded-full flex items-center justify-center mx-auto mb-6`}
+              set:html={getIconSVG(icon)}
+            />
+            <h3 class={`text-4xl font-bold ${textColorMap[color] || 'text-gray-700'} mb-2`}>{value}</h3>
+            <p class="text-lg font-semibold text-gray-800">{title}</p>
+            <p class="text-sm text-gray-600 mt-2">{description}</p>
+          </div>
+        ))}
+      </div>
+  </div>
+</section>
+
+  <!-- Featured Success Stories -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Success Stories</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Meet the individuals whose lives have been transformed through our programs and who are now making a difference in their communities.
+        </p>
+      </div>
+
+      <!-- Story 1 - Sarah's Journey -->
+      <div class="max-w-6xl mx-auto mb-16">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden animate-on-scroll">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="relative">
+              <img 
+                src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600&h=500&fit=crop&crop=face"
+                alt="Sarah Mutinda - University Graduate"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Sarah Mutinda</h3>
+                <p class="text-lg">University Graduate & Community Leader</p>
+              </div>
+            </div>
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                  </svg>
+                </div>
+                <span class="text-primary-600 font-semibold">Scholarship Program</span>
+              </div>
+              <blockquote class="text-xl text-gray-700 leading-relaxed mb-6 italic">
+                "When I received the KEEFA scholarship, it wasn't just financial support—it was hope. 
+                Today, I'm not only a university graduate but also a mentor to other young women in my community."
+              </blockquote>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Graduated with honors in Business Administration from University of Nairobi</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Now works as a financial analyst at a leading microfinance institution</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Mentors 15+ young women through our alumni network</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 - James's Transformation -->
+      <div class="max-w-6xl mx-auto mb-16">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden animate-on-scroll">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="order-2 lg:order-1 p-8 lg:p-12">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-success-500 rounded-full flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <span class="text-success-600 font-semibold">Organic Farming Project</span>
+              </div>
+              <blockquote class="text-xl text-gray-700 leading-relaxed mb-6 italic">
+                "The organic manure project didn't just improve my farm—it transformed my entire family's future. 
+                My children now have access to better education because of the increased income."
+              </blockquote>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Increased crop yields by 40% using organic farming methods</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Trains other farmers in sustainable agriculture practices</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Established a local farmers' cooperative with 25 members</p>
+                </div>
+              </div>
+            </div>
+            <div class="order-1 lg:order-2 relative">
+              <img 
+                src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=600&h=500&fit=crop&crop=face"
+                alt="James Kiprotich - Local Farmer"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">James Kiprotich</h3>
+                <p class="text-lg">Organic Farmer & Community Leader</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 3 - Grace's Empowerment -->
+      <div class="max-w-6xl mx-auto">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden animate-on-scroll">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="relative">
+              <img 
+                src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=600&h=500&fit=crop&crop=face"
+                alt="Grace Wanjiku - Workshop Graduate"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-2xl font-bold mb-2">Grace Wanjiku</h3>
+                <p class="text-lg">Entrepreneur & Workshop Graduate</p>
+              </div>
+            </div>
+            <div class="p-8 lg:p-12">
+              <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center mr-4">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
+                </div>
+                <span class="text-secondary-600 font-semibold">Workshop & Mentorship Program</span>
+              </div>
+              <blockquote class="text-xl text-gray-700 leading-relaxed mb-6 italic">
+                "The life skills workshop gave me confidence I never knew I had. I learned financial management, 
+                leadership, and communication skills that helped me start my own business."
+              </blockquote>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Started a successful tailoring business employing 8 women</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Mentors other young women in entrepreneurship</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <svg class="w-6 h-6 text-success-500 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  <p class="text-gray-600">Serves as a community leader and women's group coordinator</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact by Numbers -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Impact by the Numbers</h2>
+          <p class="text-xl text-gray-600">
+            Comprehensive data showing the reach and effectiveness of our programs across all communities.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Education Impact -->
+          <div class="bg-primary-50 rounded-xl p-8 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Education Impact</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">High School Scholarships</span>
+                <span class="text-2xl font-bold text-primary-600">350</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">University Scholarships</span>
+                <span class="text-2xl font-bold text-primary-600">150</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Graduation Rate</span>
+                <span class="text-2xl font-bold text-primary-600">95%</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Alumni in Employment</span>
+                <span class="text-2xl font-bold text-primary-600">87%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Impact -->
+          <div class="bg-success-50 rounded-xl p-8 animate-on-scroll">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Community Impact</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Farmers Trained</span>
+                <span class="text-2xl font-bold text-success-600">125</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Trees Planted</span>
+                <span class="text-2xl font-bold text-success-600">10,000+</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Organic Manure (Tons)</span>
+                <span class="text-2xl font-bold text-success-600">2,500</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-700">Communities Served</span>
+                <span class="text-2xl font-bold text-success-600">25</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-16 bg-primary-600 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Be Part of Our Success Story</h2>
+        <p class="text-xl mb-8 text-primary-100">
+          Your support creates these transformative stories. Join us in empowering more individuals 
+          and communities to reach their full potential.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a 
+            href="/get-involved#donate" 
+            class="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            Support Our Mission
+          </a>
+          <a 
+            href="/get-involved#volunteer" 
+            class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Become a Volunteer
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

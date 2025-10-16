@@ -1,0 +1,11 @@
+# Python/Django stuff
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+.venv/
+django.log
+staticfiles/
+.env
+.env.production

@@ -1,0 +1,69 @@
+# Python environment
+.venv/
+env/
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+static/
+
+# VS Code settings
+.vscode/
+
+# macOS files
+.DS_Store
+
+# Node / React stuff
+node_modules/
+build/
+dist/
+
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# dotenv environment variables
+.env
+.env.local
+.env.*.local
+
+# Django Log File
+django.log 
+
+# environment variables
+.venv
+.env
+.env.production
+
+# IDE folders
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# PyCharm
+.idea/
+
+# Others
+*.swp
+*~
+.project

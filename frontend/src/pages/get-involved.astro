@@ -1,0 +1,367 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PartnershipInquiryForm from '../scripts/PartnershipInquiryForm.tsx';
+import VolunteerForm from '../scripts/Volunteer';
+import DonateForm from '../scripts/Donate';
+---
+
+<Layout title="Get Involved" description="Join KEEFA in making a difference. Discover opportunities to donate, volunteer, partner with us, or support our scholarship and community programs.">
+  <Header />
+
+  <section class="relative py-20 bg-gradient-to-r from-accent-600 to-primary-600 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Get Involved</h1>
+        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Join us in creating lasting change. Whether through donations, volunteering, or partnerships, 
+          your involvement makes a real difference in communities across Kenya.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ways to Make a Difference</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Choose how you'd like to contribute to our mission of empowering communities and transforming lives.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-primary-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+          <div class="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Donate</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Your financial support directly funds scholarships, community projects, and essential resources 
+            that transform lives and strengthen communities.
+          </p>
+          <a 
+            href="#donate" 
+            class="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Start Donating
+          </a>
+        </div>
+
+        <div class="bg-secondary-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+          <div class="w-20 h-20 bg-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Volunteer</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Share your skills, time, and passion by volunteering with our programs. 
+            From mentoring students to supporting community projects, every contribution matters.
+          </p>
+          <a 
+            href="#volunteer" 
+            class="bg-secondary-500 hover:bg-secondary-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Join as Volunteer
+          </a>
+        </div>
+
+        <div class="bg-success-50 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+          <div class="w-20 h-20 bg-success-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Partner With Us</h3>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            Organizations, businesses, and institutions can partner with us to amplify impact 
+            through collaborative programs and shared resources.
+          </p>
+          <a 
+            href="#partner" 
+            class="bg-success-500 hover:bg-success-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+          >
+            Become a Partner
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donate" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Make a Donation</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Your donation creates immediate impact. See exactly how your contribution transforms lives 
+            and strengthens communities across Kenya.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Your Impact</h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-primary-600 font-bold">$50</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-900">Provides School Supplies</h4>
+                </div>
+                <p class="text-gray-600">Covers textbooks, uniforms, and essential materials for one student for a full semester.</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-secondary-600 font-bold">$150</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-900">Sponsors a Workshop</h4>
+                </div>
+                <p class="text-gray-600">Funds a complete life skills or digital literacy workshop for 20 participants.</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-success-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-success-600 font-bold">$500</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-900">Full Scholarship Support</h4>
+                </div>
+                <p class="text-gray-600">Provides complete educational support for one student for an entire academic year.</p>
+              </div>
+
+              <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                  <div class="w-12 h-12 bg-accent-100 rounded-full flex items-center justify-center mr-4">
+                    <span class="text-accent-600 font-bold">$1000</span>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-900">Community Project</h4>
+                </div>
+                <p class="text-gray-600">Launches a new community initiative like organic farming or water harvesting systems.</p>
+              </div>
+            </div>
+          </div>
+
+          
+            {/* Hydrate on client load */}
+          <DonateForm client:load />
+                <p class="text-xs text-gray-500 text-center">
+                  Secure payment processing. Your donation is tax-deductible.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="volunteer" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Volunteer Opportunities</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Join our community of dedicated volunteers and make a direct impact through your skills, 
+            time, and passion for community development.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-secondary-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Student Mentorship</h3>
+            <p class="text-gray-600 mb-4">Guide and support scholarship recipients through their educational journey, providing academic and personal guidance.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• 2-3 hours per week commitment</li>
+              <li>• Virtual or in-person sessions</li>
+              <li>• Training provided</li>
+            </ul>
+          </div>
+
+          <div class="bg-primary-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-primary-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Workshop Facilitation</h3>
+            <p class="text-gray-600 mb-4">Lead workshops in your area of expertise, from digital literacy to entrepreneurship and life skills development.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• Flexible scheduling</li>
+              <li>• Share your professional skills</li>
+              <li>• Materials provided</li>
+            </ul>
+          </div>
+
+          <div class="bg-success-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-success-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Community Projects</h3>
+            <p class="text-gray-600 mb-4">Participate in hands-on community development projects like tree planting, organic farming, and infrastructure development.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• Weekend and holiday projects</li>
+              <li>• Physical and planning activities</li>
+              <li>• Team-based approach</li>
+            </ul>
+          </div>
+
+          <div class="bg-accent-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-accent-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Administrative Support</h3>
+            <p class="text-gray-600 mb-4">Help with office tasks, data entry, event coordination, and other administrative functions that keep our programs running.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• Remote work options available</li>
+              <li>• Flexible hours</li>
+              <li>• Various skill levels welcome</li>
+            </ul>
+          </div>
+
+          <div class="bg-purple-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Documentation & Media</h3>
+            <p class="text-gray-600 mb-4">Document our programs through photography, videography, and storytelling to help share our impact with the world.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• Event-based opportunities</li>
+              <li>• Creative freedom</li>
+              <li>• Portfolio building</li>
+            </ul>
+          </div>
+
+          <div class="bg-pink-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300 animate-on-scroll">
+            <div class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Fundraising & Outreach</h3>
+            <p class="text-gray-600 mb-4">Help organize fundraising events, reach out to potential donors, and spread awareness about our mission in your networks.</p>
+            <ul class="text-sm text-gray-600 space-y-1 mb-4">
+              <li>• Event planning experience helpful</li>
+              <li>• Networking opportunities</li>
+              <li>• Training and support provided</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Hydrate on client load */}
+          <VolunteerForm client:load />
+      </div>
+    </div>
+  </section>
+
+  <section id="partner" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Partner With Us</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Join forces with KEEFA to amplify your impact and create sustainable change in communities. 
+            Together, we can achieve more than we ever could alone.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-on-scroll">
+            <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Corporate Partnerships</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Align your corporate social responsibility goals with our mission through strategic partnerships 
+              that benefit both your organization and our communities.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Employee volunteer programs</li>
+              <li>• Sponsored scholarship programs</li>
+              <li>• Skills-based volunteering</li>
+              <li>• Corporate giving campaigns</li>
+              <li>• Brand visibility opportunities</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-on-scroll">
+            <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Educational Institutions</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Collaborate with schools, colleges, and universities to create pathways for student success 
+              and community engagement through education.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Student exchange programs</li>
+              <li>• Research collaborations</li>
+              <li>• Internship opportunities</li>
+              <li>• Curriculum development</li>
+              <li>• Faculty engagement</li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 animate-on-scroll">
+            <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">Government & NGOs</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Work with government agencies and fellow NGOs to leverage resources, share expertise, 
+              and create comprehensive solutions for community challenges.
+            </p>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>• Joint program implementation</li>
+              <li>• Policy advocacy & lobbying</li>
+              <li>• Resource sharing & training</li>
+              <li>• Joint fundraising initiatives</li>
+              <li>• Cross-organizational projects</li>
+            </ul>
+          </div>
+        </div>
+
+          {/* Hydrate on client load */}
+          <PartnershipInquiryForm client:load />
+        
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,328 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Project Locations" description="Discover where CBO NGO operates and the communities we serve through our interactive project location map.">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-r from-success-600 to-primary-600 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Project Locations</h1>
+        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Explore the communities where we operate and discover the impact of our programs across different regions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Active Project Sites</h2>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Click on the map markers to learn more about specific projects and their impact in different communities.
+          </p>
+        </div>
+
+        <!-- Map Container -->
+        <div class="bg-gray-100 rounded-xl p-4 mb-12 animate-on-scroll">
+          <div id="map" class="w-full h-96 rounded-lg bg-gray-200 flex items-center justify-center">
+            <div class="text-center">
+              <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              <p class="text-lg font-semibold text-gray-600">Interactive Map</p>
+              <p class="text-sm text-gray-500">Google Maps integration will display our project locations</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Location Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Location 1 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/4101187/pexels-photo-4101187.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Nakuru County farming project"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Shinyalu Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-success-100 text-success-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Organic Farming</span>
+                <span class="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Scholarships</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Our largest community project site featuring organic manure production, 
+                scholarship programs for 150+ students, and agricultural training workshops.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  25 farmers benefiting from organic farming
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  150+ students on scholarship program
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location 2 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Kiambu County tree planting"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Matungu Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-success-100 text-success-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Tree Planting</span>
+                <span class="inline-block bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Workshops</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Environmental conservation focus with extensive tree planting programs, 
+                seedling distribution, and environmental education workshops.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  5,000+ trees planted this year
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  50+ workshop participants monthly
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location 3 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/1181346/pexels-photo-1181346.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Nairobi education center"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Mumias East Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Education Hub</span>
+                <span class="inline-block bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Digital Skills</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Our headquarters and primary education center offering digital literacy programs, 
+                career guidance, and scholarship coordination services.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  Main coordination center
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  100+ digital literacy graduates
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location 4 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184432/pexels-photo-3184432.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Kajiado community project"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Kwhisero Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-warning-100 text-warning-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Water Projects</span>
+                <span class="inline-block bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Scholarships</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Addressing water scarcity challenges while supporting education through 
+                scholarships for pastoralist communities and water conservation projects.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-warning-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  3 water harvesting systems built
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  75+ students supported
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location 5 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/1181265/pexels-photo-1181265.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Murang'a skills training"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Lurambi Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-secondary-100 text-secondary-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Skills Training</span>
+                <span class="inline-block bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Youth Programs</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Youth-focused programs including vocational training, entrepreneurship workshops, 
+                and leadership development for young community members.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-secondary-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  40+ youth in vocational training
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  15 youth-led businesses started
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location 6 -->
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop"
+              alt="Machakos women empowerment"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-3">
+                <svg class="w-5 h-5 text-primary-500 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
+                <h3 class="text-xl font-bold text-gray-900">Nabakholo Sub-County</h3>
+              </div>
+              <div class="mb-4">
+                <span class="inline-block bg-accent-100 text-accent-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Women Empowerment</span>
+                <span class="inline-block bg-success-100 text-success-800 px-3 py-1 rounded-full text-sm font-medium mb-2">Microfinance</span>
+              </div>
+              <p class="text-gray-600 leading-relaxed mb-4">
+                Women empowerment programs featuring microfinance initiatives, 
+                business training, and community health education programs.
+              </p>
+              <div class="space-y-2 text-sm text-gray-600">
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-accent-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  60+ women in empowerment programs
+                </div>
+                <div class="flex items-center">
+                  <svg class="w-4 h-4 mr-2 text-success-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                  20 microfinance groups established
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Summary -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 animate-on-scroll">Regional Impact Summary</h2>
+        <p class="text-xl text-gray-600 mb-12 animate-on-scroll">
+          Our programs reach across multiple sub-ounties, creating sustainable change in diverse communities.
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-white p-6 rounded-xl shadow-lg animate-on-scroll">
+            <div class="text-3xl font-bold text-primary-600 mb-2">6</div>
+            <p class="text-gray-700 font-medium">Active Sub-Counties</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-lg animate-on-scroll">
+            <div class="text-3xl font-bold text-secondary-600 mb-2">15</div>
+            <p class="text-gray-700 font-medium">Project Sites</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-lg animate-on-scroll">
+            <div class="text-3xl font-bold text-success-600 mb-2">25+</div>
+            <p class="text-gray-700 font-medium">Communities Served</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-lg animate-on-scroll">
+            <div class="text-3xl font-bold text-accent-600 mb-2">50,000+</div>
+            <p class="text-gray-700 font-medium">Lives Impacted</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Google Maps integration would go here
+  // This is a placeholder for the actual Google Maps implementation
+  function initMap() {
+    // Map initialization code
+    console.log('Map would be initialized here with actual project location markers');
+  }
+</script>

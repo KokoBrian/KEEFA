@@ -1,0 +1,249 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="About Us" description="Learn about KEEFA'S mission, vision, team, and commitment to empowering communities through education and sustainable development.">
+  <Header />
+  
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-r from-primary-600 to-secondary-600 text-white overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="max-w-3xl mx-auto text-center animate-fade-in">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">About KEEFA</h1>
+        <p class="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          Dedicated to transforming communities through education, empowerment, and sustainable development initiatives.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission, Vision, Values -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Mission -->
+        <div class="text-center animate-on-scroll">
+          <div class="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+          <p class="text-gray-600 leading-relaxed">
+            To empower individuals and communities through accessible education, skill development, 
+            and sustainable community projects that create lasting positive change.
+          </p>
+        </div>
+
+        <!-- Vision -->
+        <div class="text-center animate-on-scroll">
+          <div class="w-20 h-20 bg-secondary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+          <p class="text-gray-600 leading-relaxed">
+            A world where every individual has equal access to quality education and opportunities, 
+            and where communities thrive through collaborative development and environmental stewardship.
+          </p>
+        </div>
+
+        <!-- Values -->
+        <div class="text-center animate-on-scroll">
+          <div class="w-20 h-20 bg-accent-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Values</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Integrity, Accountability, compassion, excellence, sustainability, and community partnership guide 
+            every decision we make and every program we implement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12 animate-on-scroll">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Story</h2>
+          <p class="text-xl text-gray-600">How KEEFA began its journey of transformation</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll">
+            <img 
+              src="https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop"
+              alt="Community meeting founding KEEFA"
+              class="w-full rounded-xl shadow-lg"
+            />
+          </div>
+          <div class="animate-on-scroll">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Founded on Hope and Determination</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              KEEFA was founded in 2017 by a group of passionate KEEF Alumini who recognized 
+              the urgent need for educational support and sustainable development in underserved communities. 
+              What started as a small initiative to help five local students has grown into a comprehensive 
+              organization impacting hundreds of lives.
+            </p>
+            <p class="text-gray-600 leading-relaxed mb-4">
+              Our founders understood that education is the foundation of community development, but they 
+              also recognized that true transformation requires a holistic approach. This insight led to 
+              the creation of our integrated programs that address immediate needs while building 
+              long-term sustainability.
+            </p>
+            <div class="flex items-center space-x-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-primary-600">2017</div>
+                <div class="text-sm text-gray-600">Founded</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-secondary-600">500+</div>
+                <div class="text-sm text-gray-600">Lives Changed</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-success-600">15</div>
+                <div class="text-sm text-gray-600">Communities</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Meet the dedicated individuals who make our mission possible through their expertise, 
+          passion, and commitment to community development.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Team Member 1 -->
+        <div class="text-center group animate-on-scroll">
+          <div class="relative mb-6">
+            <img 
+              src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop&crop=face"
+              alt="Dr. Michael Mwangi - Executive Director"
+              class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Dr. Ezekieli</h3>
+          <p class="text-primary-600 font-semibold mb-3">Executive Director</p>
+          <p class="text-gray-600 leading-relaxed">
+            With over 15 years in community development and a PhD in Medicine, 
+            Dr. Ezekieli leads our strategic initiatives and community partnerships.
+          </p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="text-center group animate-on-scroll">
+          <div class="relative mb-6">
+            <img 
+              src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop&crop=face"
+              alt="Sarah Njeri - Program Manager"
+              class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Sarah Were</h3>
+          <p class="text-secondary-600 font-semibold mb-3">Program Manager</p>
+          <p class="text-gray-600 leading-relaxed">
+            Sarah oversees our scholarship and workshop programs, ensuring quality delivery 
+            and meaningful impact for all our beneficiaries.
+          </p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="text-center group animate-on-scroll">
+          <div class="relative mb-6">
+            <img 
+              src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop&crop=face"
+              alt="James Kiprono - Community Coordinator"
+              class="w-48 h-48 rounded-full mx-auto object-cover shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+            />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-2">Consolata Adgiza</h3>
+          <p class="text-success-600 font-semibold mb-3">Community Coordinator</p>
+          <p class="text-gray-600 leading-relaxed">
+            James coordinates our community projects and serves as the primary liaison 
+            between our organization and the communities we serve.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12 animate-on-scroll">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Partners</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Working together with organizations and institutions that share our vision for community empowerment.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Partner 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 animate-on-scroll">
+          <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Local Education Board</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Collaborative partnerships with local educational institutions to identify 
+            scholarship candidates and provide academic support.
+          </p>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 animate-on-scroll">
+          <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-secondary-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Agricultural Cooperatives</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Working with farmer cooperatives to implement sustainable farming practices 
+            and distribute organic farming resources.
+          </p>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300 animate-on-scroll">
+          <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-success-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Community Leaders</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Strong relationships with community leaders who help identify needs 
+            and ensure our programs align with community priorities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
