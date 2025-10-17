@@ -1,6 +1,6 @@
 // api/news.ts
 import http from './http';
-import type { PaginatedResponse } from './types';
+import type { PaginatedResponse, Event } from './types';
 
 export interface NewsCategory {
   id: number;
@@ -12,7 +12,7 @@ export interface NewsCategory {
 
 
 export interface NewsArticle {
-  // fill in with actual properties when known
+  // fill in with actual properties when known  
   [key: string]: any;
 }
 
@@ -89,15 +89,11 @@ export async function subscribeNewsletter(
 /**
  * Fetch upcoming events (paginated)
  */
-export async function fetchUpcomingEvents(page: number = 1): Promise<PaginatedResponse<Event>> {
-  try {
-    const response = await http.get<PaginatedResponse<Event>>('news/events/upcoming/', {
-      params: { page },  // Pass `page` as query parameter
-    });
-    return response.data;  // Return the entire paginated response
-  } catch (error) {
-    throw new Error("Failed to fetch events");
-  }
+export async function fetchUpcomingEvents(page: number = 1): Promise<PaginatedResponse<ApiEvent>> {
+  const { data } = await http.get<PaginatedResponse<ApiEvent>>('news/events/upcoming/', {
+    params: { page },
+  });
+  return data;
 }
 
 
@@ -109,16 +105,14 @@ interface EventRegistrationPayload {
 }
 
 // Function to register for an event
-export const registerForEvent = async (payload: EventRegistrationPayload) => {
+export async function registerForEvent(payload: EventRegistrationPayload) {
   try {
-    const response = await axios.post(BASE_URL, payload);
-    return response.data;
+    const { data } = await http.post('news/events/register/', payload);
+    return data;
   } catch (error: any) {
     if (error.response) {
-      // If the server responded with an error
       throw new Error(error.response.data.error || 'Something went wrong!');
     }
-    // If there was a network error
     throw new Error('Network error occurred');
   }
-};
+}
