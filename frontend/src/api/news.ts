@@ -100,15 +100,15 @@ export async function fetchUpcomingEvents(page: number = 1): Promise<PaginatedRe
 // Define the interface for the event registration payload
 interface EventRegistrationPayload {
   event_slug: string;
-  user_email: string;
-  [key: string]: any; // Add any additional fields you need
+  email: string;
+  
 }
 
 // Function to register for an event
 export async function registerForEvent(payload: EventRegistrationPayload) {
   try {
-    const { data } = await http.post('news/events/register/', payload);
-    return data;
+    const { data: responseData } = await http.post('news/events/register/', payload);
+    return responseData;
   } catch (error: any) {
     if (error.response) {
       throw new Error(error.response.data.error || 'Something went wrong!');

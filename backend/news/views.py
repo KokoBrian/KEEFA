@@ -1,5 +1,7 @@
 from rest_framework import generics, status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -91,25 +93,37 @@ class EventDetailView(generics.RetrieveAPIView):
 
 class EventRegistrationCreateView(generics.CreateAPIView):
     serializer_class = EventRegistrationSerializer
+    permission_classes = [AllowAny]
+    authentication_classes = [SessionAuthentication, BasicAuthentication] 
 
     def create(self, request, *args, **kwargs):
         event_slug = request.data.get("event_slug")
-        user_email = request.data.get("user_email")
+    
+        if not event_slug:
+            return Response({"error": "event_slug is required"}, status=status.HTTP_400_BAD_REQUEST)
+
 
         try:
             event = Event.objects.get(slug=event_slug, is_active=True)
         except Event.DoesNotExist:
             return Response({"error": "Event not found"}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Validate serializer data except event_slug
+        serializer = self.get_serializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         # Prevent duplicate registration
-        if EventRegistration.objects.filter(event=event, user_email=user_email).exists():
+        email = serializer.validated_data.get('email')
+        if EventRegistration.objects.filter(event=event, email=email).exists():
             return Response({"message": "Already registered for this event"}, status=status.HTTP_200_OK)
 
-        registration = EventRegistration.objects.create(event=event, user_email=user_email)
+        # Save registration with linked event
+        registration = serializer.save(event=event)
         return Response(
             {"message": f"Successfully registered for {event.title}!", "id": registration.id},
             status=status.HTTP_201_CREATED
-        )           
+        )       
   
 
 class NewsletterSubscribeView(generics.CreateAPIView):
