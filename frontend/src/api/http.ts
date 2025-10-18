@@ -9,15 +9,22 @@ function getToken(): string | null {
   return null;
 }
 
+// Function to get CSRF token from cookie
+function getCsrfToken(): string | null {
+  if (typeof document === 'undefined') return null;
+  const match = document.cookie.match(new RegExp('(^| )csrftoken=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : null;
+}
+
 const http = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1/',
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: true, // include cookies if backend uses sessions
+  withCredentials: true, // include cookies for CSRF and sessions
 });
 
-// Interceptor to add Authorization header if token exists
+// Interceptor to add Authorization and CSRF headers if needed
 http.interceptors.request.use(
   (config) => {
     const token = getToken();
@@ -27,12 +34,27 @@ http.interceptors.request.use(
         config.headers = {} as AxiosRequestHeaders;
       }
 
-      // Axios v1+ uses AxiosHeaders with .set method
+      // Add Authorization header
       if (typeof (config.headers as any).set === 'function') {
         (config.headers as any).set('Authorization', `Bearer ${token}`);
       } else {
-        // fallback for plain object headers
         (config.headers as AxiosRequestHeaders)['Authorization'] = `Bearer ${token}`;
+      }
+    }
+
+    // For unsafe HTTP methods, add CSRF token header
+    const unsafeMethods = ['post', 'put', 'patch', 'delete'];
+    if (config.method && unsafeMethods.includes(config.method.toLowerCase())) {
+      const csrfToken = getCsrfToken();
+      if (csrfToken) {
+        if (!config.headers) {
+          config.headers = {} as AxiosRequestHeaders;
+        }
+        if (typeof (config.headers as any).set === 'function') {
+          (config.headers as any).set('X-CSRFToken', csrfToken);
+        } else {
+          (config.headers as AxiosRequestHeaders)['X-CSRFToken'] = csrfToken;
+        }
       }
     }
 
