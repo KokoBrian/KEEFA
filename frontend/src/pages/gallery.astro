@@ -1,0 +1,97 @@
+---
+// 1. Define the Interface based on your Django Model
+interface GalleryImage {
+  id: number;
+  image: string; // Django usually returns the absolute URL
+  title: string;
+  category_name: string; 
+}
+
+let images: GalleryImage[] = [];
+let error: string | null = null;
+
+// 2. Fetch data from your Django API
+try {
+  const response = await fetch('http://127.0.0.1:8000/api/v1/impact-statistics/');
+  
+  if (!response.ok) {
+    throw new Error(`Server responded with status: ${response.status}`);
+  }
+  
+  images = await response.data;
+} catch (e) {
+  error = "Could not load gallery images. Please ensure the backend server is running.";
+  console.error("Fetch Error:", e);
+}
+
+const INITIAL_DISPLAY = 4;
+---
+
+<section class="py-16 bg-gray-50 min-h-[400px]">
+  <div class="container mx-auto px-4">
+    
+    {error ? (
+      <div class="bg-red-50 border border-red-200 p-6 rounded-xl text-center">
+        <p class="text-red-600 font-medium">{error}</p>
+        <code class="text-xs text-red-400 block mt-2">ECONNREFUSED: 127.0.0.1:8000</code>
+      </div>
+    ) : (
+      <>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="gallery-grid">
+          {images.map((img, index) => (
+            <div 
+              class={`gallery-item group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 ${index >= INITIAL_DISPLAY ? 'hidden opacity-0' : 'block'}`}
+              data-category={img.category_name}
+            >
+              <img 
+                src={img.image} 
+                alt={img.title} 
+                loading="lazy"
+                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-blue-400 text-xs font-bold uppercase">{img.category_name}</span>
+                <span class="text-white font-bold">{img.title}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {images.length > INITIAL_DISPLAY && (
+          <div class="text-center mt-12">
+            <button 
+              id="load-more-btn"
+              class="px-8 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200"
+            >
+              Load More Projects
+            </button>
+          </div>
+        )}
+      </>
+    )}
+  </div>
+</section>
+
+<script>
+  // Script for the Load More functionality
+  const loadMoreBtn = document.getElementById('load-more-btn');
+  
+  loadMoreBtn?.addEventListener('click', () => {
+    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
+    const STEP = 4;
+    
+    const nextBatch = Array.from(hiddenItems).slice(0, STEP);
+    
+    nextBatch.forEach(item => {
+      item.classList.remove('hidden');
+      setTimeout(() => {
+        item.classList.remove('opacity-0');
+        item.classList.add('opacity-100');
+      }, 10);
+    });
+
+    if (hiddenItems.length <= STEP) {
+      loadMoreBtn.classList.add('hidden');
+    }
+  });
+</script>
