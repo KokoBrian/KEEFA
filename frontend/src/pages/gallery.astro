@@ -1,97 +1,156 @@
 ---
-// 1. Define the Interface based on your Django Model
-interface GalleryImage {
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+/* --------------------
+   Feature Flags
+-------------------- */
+const ENABLE_API = false;
+
+/* --------------------
+   Types
+-------------------- */
+export interface GalleryImage {
   id: number;
-  image: string; // Django usually returns the absolute URL
+  image: string;
   title: string;
-  category_name: string; 
+  category_name: string;
 }
 
+interface PaginatedResponse<T> {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: T[];
+}
+
+/* --------------------
+   Mock Data (API-ready)
+-------------------- */
+const MOCK_RESPONSE: PaginatedResponse<GalleryImage> = {
+  count: 8,
+  next: null,
+  previous: null,
+  results: [
+    { id: 1, image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg', title: 'Scholarship Program', category_name: 'Education' },
+    { id: 2, image: 'https://images.pexels.com/photos/2886937/pexels-photo-2886937.jpeg', title: 'Organic Farming', category_name: 'Agriculture' },
+    { id: 3, image: 'https://images.pexels.com/photos/6647037/pexels-photo-6647037.jpeg', title: 'Women Empowerment', category_name: 'Community' },
+    { id: 4, image: 'https://images.pexels.com/photos/6647026/pexels-photo-6647026.jpeg', title: 'Youth Training', category_name: 'Education' },
+    { id: 5, image: 'https://images.pexels.com/photos/2387418/pexels-photo-2387418.jpeg', title: 'Tree Planting', category_name: 'Environment' },
+    { id: 6, image: 'https://images.pexels.com/photos/2280571/pexels-photo-2280571.jpeg', title: 'Water Access', category_name: 'Community' },
+    { id: 7, image: 'https://images.pexels.com/photos/6995226/pexels-photo-6995226.jpeg', title: 'Tailoring Workshop', category_name: 'Skills' },
+    { id: 8, image: 'https://images.pexels.com/photos/6647116/pexels-photo-6647116.jpeg', title: 'Farmer Training', category_name: 'Agriculture' },
+  ],
+};
+
+/* --------------------
+   Data Resolution
+-------------------- */
 let images: GalleryImage[] = [];
-let error: string | null = null;
+let errorMessage: string | null = null;
 
-// 2. Fetch data from your Django API
-try {
-  const response = await fetch('http://127.0.0.1:8000/api/v1/impact-statistics/');
-  
-  if (!response.ok) {
-    throw new Error(`Server responded with status: ${response.status}`);
+if (ENABLE_API) {
+  try {
+    const API_URL = import.meta.env.PUBLIC_API_BASE_URL + '/gallery/';
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error('API error');
+    const data: PaginatedResponse<GalleryImage> = await res.json();
+    images = data.results;
+  } catch {
+    errorMessage = 'Unable to load gallery.';
   }
-  
-  images = await response.data;
-} catch (e) {
-  error = "Could not load gallery images. Please ensure the backend server is running.";
-  console.error("Fetch Error:", e);
+} else {
+  images = MOCK_RESPONSE.results;
 }
 
-const INITIAL_DISPLAY = 4;
+const INITIAL_BATCH = 4;
+const categories = Array.from(new Set(images.map(i => i.category_name)));
 ---
-
-<section class="py-16 bg-gray-50 min-h-[400px]">
+<section class="py-16 bg-gray-50">
   <div class="container mx-auto px-4">
-    
-    {error ? (
-      <div class="bg-red-50 border border-red-200 p-6 rounded-xl text-center">
-        <p class="text-red-600 font-medium">{error}</p>
-        <code class="text-xs text-red-400 block mt-2">ECONNREFUSED: 127.0.0.1:8000</code>
-      </div>
-    ) : (
-      <>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="gallery-grid">
-          {images.map((img, index) => (
-            <div 
-              class={`gallery-item group relative overflow-hidden rounded-xl shadow-lg transition-all duration-500 ${index >= INITIAL_DISPLAY ? 'hidden opacity-0' : 'block'}`}
-              data-category={img.category_name}
-            >
-              <img 
-                src={img.image} 
-                alt={img.title} 
-                loading="lazy"
-                class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" 
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span class="text-blue-400 text-xs font-bold uppercase">{img.category_name}</span>
-                <span class="text-white font-bold">{img.title}</span>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {images.length > INITIAL_DISPLAY && (
-          <div class="text-center mt-12">
-            <button 
-              id="load-more-btn"
-              class="px-8 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-200"
-            >
-              Load More Projects
-            </button>
-          </div>
-        )}
-      </>
+    {errorMessage && (
+      <div class="bg-red-50 border border-red-200 p-6 rounded-xl text-center text-red-600">
+        {errorMessage}
+      </div>
     )}
+
+    {!errorMessage && images.length === 0 && (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {Array.from({ length: INITIAL_BATCH }).map(() => (
+          <div class="h-64 bg-gray-200 rounded-xl animate-pulse"></div>
+        ))}
+      </div>
+    )}
+
+    {categories.length > 0 && (
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <button class="filter-btn active" data-category="all">All</button>
+        {categories.map(cat => (
+          <button class="filter-btn" data-category={cat}>{cat}</button>
+        ))}
+      </div>
+    )}
+
+    <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {images.map((img, index) => (
+        <div
+          class={`gallery-item ${index >= INITIAL_BATCH ? 'hidden' : ''}`}
+          data-category={img.category_name}
+        >
+          <div class="relative overflow-hidden rounded-xl shadow-lg group">
+            <img src={img.image} alt={img.title} class="h-64 w-full object-cover group-hover:scale-105 transition" />
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 flex flex-col justify-end p-4 transition">
+              <span class="text-xs text-blue-400 uppercase">{img.category_name}</span>
+              <span class="text-white font-bold">{img.title}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {images.length > INITIAL_BATCH && (
+      <div class="text-center mt-12">
+        <button id="load-more" class="px-8 py-3 bg-blue-600 text-white rounded-full font-bold">
+          Load More
+        </button>
+      </div>
+    )}
+
   </div>
 </section>
 
 <script>
-  // Script for the Load More functionality
-  const loadMoreBtn = document.getElementById('load-more-btn');
-  
-  loadMoreBtn?.addEventListener('click', () => {
-    const hiddenItems = document.querySelectorAll('.gallery-item.hidden');
-    const STEP = 4;
-    
-    const nextBatch = Array.from(hiddenItems).slice(0, STEP);
-    
-    nextBatch.forEach(item => {
-      item.classList.remove('hidden');
-      setTimeout(() => {
-        item.classList.remove('opacity-0');
-        item.classList.add('opacity-100');
-      }, 10);
-    });
+  const BATCH_SIZE = 4;
+  let visibleCount = BATCH_SIZE;
 
-    if (hiddenItems.length <= STEP) {
-      loadMoreBtn.classList.add('hidden');
-    }
+  const items = Array.from(document.querySelectorAll('.gallery-item'));
+  const loadMoreBtn = document.getElementById('load-more');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+
+  loadMoreBtn?.addEventListener('click', () => {
+    const hidden = items.filter(i => i.classList.contains('hidden'));
+    hidden.slice(0, BATCH_SIZE).forEach(i => i.classList.remove('hidden'));
+    if (hidden.length <= BATCH_SIZE) loadMoreBtn.classList.add('hidden');
+  });
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const cat = btn.dataset.category;
+      visibleCount = BATCH_SIZE;
+
+      items.forEach((item, i) => {
+        const match = cat === 'all' || item.dataset.category === cat;
+        item.classList.toggle('hidden', !match || i >= visibleCount);
+      });
+
+      loadMoreBtn?.classList.toggle(
+        'hidden',
+        items.filter(i => !i.classList.contains('hidden')).length <= BATCH_SIZE
+      );
+    });
   });
 </script>
