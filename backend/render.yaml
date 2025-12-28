@@ -4,7 +4,7 @@ services:
     name: django-backend
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn my_project_name.wsgi:application"
+    startCommand: "gunicorn --bind 0.0.0.0:8000 keefa.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
