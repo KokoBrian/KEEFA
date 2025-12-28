@@ -67,3 +67,7 @@ django.log
 *.swp
 *~
 .project
+# environment variables
+.venv
+.env
+.env.production
